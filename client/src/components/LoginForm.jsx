@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-// import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN_USER } from '../utils/mutations';
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form onSubmit={handleFormSubmit}>
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
