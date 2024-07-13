@@ -20,12 +20,8 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    savedBooks: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Book',
-      },
-    ],
+    // set savedBooks to be an array of data that adheres to the bookSchema
+    savedBooks: [bookSchema],
   },
 );
 
