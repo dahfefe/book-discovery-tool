@@ -40,6 +40,12 @@ const SignupForm = () => {
     } catch (e) {
       console.error(e);
     }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
   };
 
   return (
