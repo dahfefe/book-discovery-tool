@@ -34,7 +34,7 @@ const resolvers = {
 
       return { token, user };
     },
-    saveBook: async (parent, {input} ,context) => {
+    saveBook: async (parent, {input}, context) => {
       try {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -47,10 +47,12 @@ const resolvers = {
         return AuthenticationError;
       }
     },
-    removeBook: async (parent, {user, params}) =>{
+    removeBook: async (parent, args, context) => {
+      console.log(args)
+      console.log(context.user)
       const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $pull: { savedBooks: { bookId: params.bookId } } },
+        { _id: context.user._id },
+        { $pull: { savedBooks: { bookId: args.bookId } } },
         { new: true }
       );
       if (!updatedUser) {
